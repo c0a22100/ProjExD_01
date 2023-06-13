@@ -21,18 +21,19 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
-        screen.blit(bg_img, [0-x,0])
-        screen.blit(bg_img, [1600-x, 0])
-        if x < 800:
-            x += 1
-        elif x >= 1600:
-            x += 1
+        screen.blit(bg_img, [-tmr,0])
+        screen.blit(pg.transform.flip(bg_img, True, False), [1600-tmr, 0])
+        screen.blit(bg_img, [3200-tmr, 0])
+        if tmr == 3200:
+            tmr = 0
+        else:
+            pass
         
         screen.blit(kou, [300, 200+10*math.sin(math.radians(tmr))])
         
         pg.display.update()
         tmr += 1        
-        clock.tick(500)
+        clock.tick(1000)
 
 
 if __name__ == "__main__":
