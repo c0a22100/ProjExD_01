@@ -8,20 +8,19 @@ def main():
     clock  = pg.time.Clock()
     bg_img = pg.image.load("ex01/fig/pg_bg.jpg")
 
-    kou = pg.Surface((20, 20))
-    pic = pg.image.load("ex01/fig/3.png")
-    pg.transform.flip(pic, True, False)
-    kklist = [pg.transform.rotozoom(pic, 10, 1)]
+    # kou = pg.Surface((0, 0))
+    kou = pg.image.load("ex01/fig/3.png")
+    kou = pg.transform.flip(kou, True, False)
+    kklist = [pg.transform.rotozoom(kou, 10, 1)]
 
-    pg.transform
     tmr = 0
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
         screen.blit(bg_img, [0, 0])
-        screen.blit(pic, [0, 0])
-
+        screen.blit(kou, [300, 200])
+        
         pg.display.update()
         tmr += 1        
         clock.tick(10)
